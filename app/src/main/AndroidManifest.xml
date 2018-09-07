@@ -1,0 +1,52 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.movietime.easymovies">
+
+    <application
+        android:name="com.movietime.easymovies.MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.movietime.easymovies.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="player.XLVideoPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="user"
+            android:theme="@style/android:Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="ijkplayer.xlvideo.play" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="video/*" />
+                <data android:scheme="http" />
+                <data android:scheme="ftp" />
+                <data android:scheme="file" />
+                <data android:scheme="ed2k" />
+                <data android:scheme="thunder" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="video/*" />
+                <data android:scheme="http" />
+                <data android:scheme="ftp" />
+                <data android:scheme="file" />
+                <data android:scheme="ed2k" />
+                <data android:scheme="thunder" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
