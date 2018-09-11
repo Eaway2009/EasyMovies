@@ -107,6 +107,8 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= 23) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED//存储权限组
                     ) {
+                btnPlay.setEnabled(false);
+                btnDownload.setEnabled(false);
                 ActivityCompat.requestPermissions(this, new String[]{
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                 }, AllPer);
@@ -120,9 +122,11 @@ public class MainActivity extends Activity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == AllPer) {
             boolean READ_EXTERNAL_STORAGECheck = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-
             if (!READ_EXTERNAL_STORAGECheck) {
                 mToast("没有申请到存储权限，无法下载播放");
+            } else {
+                btnPlay.setEnabled(true);
+                btnDownload.setEnabled(true);
             }
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
