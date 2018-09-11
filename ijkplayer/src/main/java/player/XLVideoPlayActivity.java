@@ -356,6 +356,13 @@ public class XLVideoPlayActivity extends Activity implements IMediaPlayer.OnPrep
 
         isRunning = true;
         runningInstance = this;
+        if(android.provider.Settings.System.getInt(getContentResolver(),
+                android.provider.Settings.System.ACCELEROMETER_ROTATION, 0) == 0) {
+
+            if(getRequestedOrientation()!=ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
+        }
     }
 
     @Override
