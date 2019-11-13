@@ -1,1 +1,1 @@
-include ':app',':thunder',':ijkplayer'
+include ':app',':thunder',':ijkplayer', ':tvplay'
